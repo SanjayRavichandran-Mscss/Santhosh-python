@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.Loops</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; text-align: left; overflow-x: auto; }
+        a { display: block; margin-top: 20px; text-decoration: none; color: white; background: #007BFF; padding: 10px; border-radius: 5px; width: 150px; margin-left: auto; margin-right: auto; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <pre><code>
+        ******************[A]****************
+        guessed_number = 77
+
+        while True:
+            x = int(input("Guess any Number: "))
+        
+            if x == guessed_number:
+                print("Correct!")
+                break  
+            elif x > guessed_number:
+                print("Too High")
+            else:
+                print("Too Short")
+        ***************[B]*******************
+        def factorial(n):
+            result=1
+            for i in range(1,n+1):
+                result*=i
+            return result
+        number=int(input("Enter any Number:"))
+        fact=factorial(number)
+        print(f"Factorial of {number} is {fact}")
+    </code></pre>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

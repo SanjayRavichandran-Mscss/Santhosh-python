@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.conditionalBranches</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; text-align: left; overflow-x: auto; }
+        a { display: block; margin-top: 20px; text-decoration: none; color: white; background: #007BFF; padding: 10px; border-radius: 5px; width: 150px; margin-left: auto; margin-right: auto; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <pre><code>
+        **************[A]****************
+        def fizzbuzz():
+        num=int(input("Enter any Number:"))
+        for i in range(1,num+1):
+            if i%3==0 and i%5==0:
+                print("FizzBuzz")
+            elif i%3==0:
+                print("Fizz")
+            elif i%5==0:
+                print("Buzz")
+            else:
+                print(i)
+    fizzbuzz() 
+    *********[B]************************
+    import re
+    p = input("Input your Password: ")
+    if len(p) < 6 or len(p) > 12:
+        print("Invalid Password: Length should be between 6 and 12 characters.")
+    elif not re.search("[a-z]", p):
+        print("Invalid Password: Must contain at least one lowercase letter.")
+    elif not re.search("[A-Z]", p):
+        print("Invalid Password: Must contain at least one uppercase letter.")
+    elif not re.search("[0-9]", p):
+        print("Invalid Password: Must contain at least one digit.")
+    elif not re.search("[@#&*^%!]", p):
+        print("Invalid Password: Must contain at least one special character (@#&*^%!).")
+    elif re.search("\s", p):
+        print("Invalid Password: Should not contain spaces.")
+    else:
+        print("Valid Password")
+    </code></pre>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

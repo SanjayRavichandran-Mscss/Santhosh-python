@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.FileOperation</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; text-align: left; overflow-x: auto; }
+        a { display: block; margin-top: 20px; text-decoration: none; color: white; background: #007BFF; padding: 10px; border-radius: 5px; width: 150px; margin-left: auto; margin-right: auto; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <pre><code>
+****************[A]*****************************
+def write_to_file(filename):
+    with open(filename, 'w') as file:
+        print("Enter text to write to the file. Type 'STOP' to finish.")
+
+        while True:
+            line = input("> ")
+            if line.strip().upper() == "STOP":
+                break
+            file.write(line + "\n")
+
+    print(f"Data has been written to {filename}.\n")
+
+
+def read_from_file(filename):
+    try:
+        with open(filename, "r") as file:
+            print(f"Contents of {filename}:")
+            content = file.read()
+            print(content)
+
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' does not exist.")
+
+
+
+filename = "example.txt"
+write_to_file(filename)
+read_from_file(filename)
+*******************[B]********************
+def add_task(task):
+    with open("D:\python.txt", "a") as file:
+        file.write(f"{task}\n")
+        print("Task added.")
+def view_tasks():
+    with open("D:\python.txt", "r") as file:
+        tasks = file.readlines()
+        if not tasks:
+            print("No tasks found.")
+        else:
+            print("To-Do List:")
+            for i, line in enumerate(tasks, start=1):
+                print(f"{i}. {line.strip()}")
+def delete_task(task_number):
+    with open("D:\python.txt", "r") as file:
+        tasks = file.readlines()
+        if task_number < 1 or task_number > len(tasks):
+            print("Invalid task number.")
+            return
+        del tasks[task_number - 1]
+        with open("D:\python.txt", "w") as file:
+            file.writelines(tasks)
+            print(f"Task {task_number} deleted.")
+add_task("Buy groceries")
+add_task("Finish Python project")
+view_tasks()
+delete_task(1)
+view_tasks()
+
+    </code></pre>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title7.Polymorphism</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; text-align: left; overflow-x: auto; }
+        a { display: block; margin-top: 20px; text-decoration: none; color: white; background: #007BFF; padding: 10px; border-radius: 5px; width: 150px; margin-left: auto; margin-right: auto; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <pre><code>
+******************[A]*******************
+class Vehicle:
+    def init(self, base_rate):
+        self.base_rate = base_rate
+
+    def rent(self, duration, customer_type):
+        raise NotImplementedError("Subclass must implement this method")
+
+
+class Car(Vehicle):
+    def init(self):
+        super().init(base_rate=20)
+    def rent(self, duration, customer_type):
+        discount = 0.1 if customer_type == "premium" else 0
+        cost = duration * self.base_rate * (1 - discount)
+        return f"Car rented for {duration} hours. Cost: ${cost:.2f} USD"
+
+
+class Bike(Vehicle):
+    def init(self):
+        super().init(base_rate=5)
+
+    def rent(self, duration, customer_type):
+        discount = 0.05 if customer_type == "premium" else 0
+        cost = duration * self.base_rate * (1 - discount)
+        return f"Bike rented for {duration} hours. Cost: ${cost:.2f} USD"
+
+
+class Truck(Vehicle):
+    def init(self):
+        super().init(base_rate=50)
+
+    def rent(self, duration, customer_type):
+        discount = 0.15 if customer_type == "premium" else 0
+        cost = duration * self.base_rate * (1 - discount)
+        return f"Truck rented for {duration} hours. Cost: ${cost:.2f} USD"
+
+vehicles = [Car(), Bike(), Truck()]
+customer_type = "premium"
+
+
+for vehicle in vehicles:
+    print(vehicle.rent(4, customer_type))
+**********************[B]******************
+class Compute:
+    def area(self, x=None, y=None, z=None):
+        if x is not None and y is not None and z is not None:
+            return x + y + z  
+
+        elif x is not None and y is not None:
+            return x * y  
+
+        elif x is not None:
+            return 3.14 * x * x
+        else:
+            return 0  
+
+
+obj = Compute()
+
+r = int(input("Enter radius value: "))
+print("Area of circle:", obj.area(r))
+l = int(input("Enter length of the rectangle: "))
+b = int(input("Enter the breadth of the rectangle: "))
+print("Area of rectangle:", obj.area(l, b))
+a = int(input("Enter the side value: "))
+b = int(input("Enter the base value: "))
+c = int(input("Enter the another side value: "))
+print("Perimeter of a Triangle:", obj.area(a, b, c))
+    </code></pre>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

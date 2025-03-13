@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.Modules</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; text-align: left; overflow-x: auto; }
+        a { display: block; margin-top: 20px; text-decoration: none; color: white; background: #007BFF; padding: 10px; border-radius: 5px; width: 150px; margin-left: auto; margin-right: auto; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <pre><code>
+*******************[A]**********************
+from turtle import Turtle, Screen
+
+def draw_petal(turtle, radius):
+    heading = turtle.heading()  # Store the initial direction
+    turtle.circle(radius, 60)
+    turtle.left(120)
+    turtle.circle(radius, 60)
+    turtle.setheading(heading)  # Reset turtle's heading
+
+# Get user inputs
+my_radius = int(input("Enter the radius of the flower: "))
+my_petals = int(input("Enter the number of petals: "))
+
+# Create turtle object
+bob = Turtle()
+bob.speed("fastest")  # Speed up drawing
+
+# Draw petals
+for _ in range(my_petals):
+    draw_petal(bob, my_radius)
+    bob.left(360 / my_petals)  # Rotate to position for next petal
+
+bob.hideturtle()  # Hide the turtle after drawing
+
+# Display the result
+screen = Screen()
+screen.exitonclick()  # Close the window when clicke
+*********************[B]**********************
+import math
+
+# Functions to calculate areas
+def area_square(a):
+    return a * a
+
+def area_circle(r):
+    return math.pi * r * r  # Using math.pi for precision
+
+def area_rectangle(l, b):
+    return l * b
+
+def area_triangle(b, h):
+    return 0.5 * b * h
+
+def area_hexagon(s):
+    return (3 * math.sqrt(3) * s * s) / 2
+
+def area_cylinder(r, h):
+    return 2 * math.pi * r * (r + h)  # Surface area of a cylinder
+
+# Menu for area calculations
+print("Area of Different Shapes")
+print("1. Square\n2. Circle\n3. Rectangle\n4. Triangle\n5. Hexagon\n6. Cylinder\n7. Exit")
+
+while True:
+    try:
+        ch = int(input("Enter your choice to find area: "))
+
+        if ch == 1:
+            s = int(input("Enter the side: "))
+            print("Area of Square:", area_square(s))
+
+        elif ch == 2:
+            r = int(input("Enter the radius: "))
+            print("Area of Circle:", area_circle(r))
+
+        elif ch == 3:
+            l = int(input("Enter the length: "))
+            b = int(input("Enter the breadth: "))
+            print("Area of Rectangle:", area_rectangle(l, b))
+
+        elif ch == 4:
+            b = int(input("Enter the base: "))
+            h = int(input("Enter the height: "))
+            print("Area of Triangle:", area_triangle(b, h))
+
+        elif ch == 5:
+            s = int(input("Enter the side: "))
+            print("Area of Hexagon:", area_hexagon(s))
+
+        elif ch == 6:
+            r = int(input("Enter the radius: "))
+            h = int(input("Enter the height: "))
+            print("Area of Cylinder:", area_cylinder(r, h))
+
+        elif ch == 7:
+            print("Exiting the program.")
+            break
+
+        else:
+            print("Invalid choice, please enter a number between 1-7.")
+
+    except ValueError:
+        print("Invalid input! Please enter a valid number.")
+
+    </code></pre>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

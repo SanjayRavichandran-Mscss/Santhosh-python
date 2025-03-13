@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.ExceptionHandling</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; text-align: left; overflow-x: auto; }
+        a { display: block; margin-top: 20px; text-decoration: none; color: white; background: #007BFF; padding: 10px; border-radius: 5px; width: 150px; margin-left: auto; margin-right: auto; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <pre><code>
+        ******************[A]*******************
+        import re
+        def send_mail(email, sub, msg):
+            email_pattern = r"^[a-zA-Z0-9._+=-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$"
+           
+            if not re.match(email_pattern, email):
+                raise ValueError("Invalid email format")
+            print(f"Email sent to {email}")
+            print(f"{sub}: {msg}")
+        try:
+            email = input("Enter your email ID: ")
+            sub = input("Enter subject: ")
+            msg = input("Enter your message: ")
+           
+            send_mail(email, sub, msg)
+        except ValueError as e:
+            print(f"Error: {e}")
+        except Exception as ex:
+            print(f"Unexpected error: {ex}")
+        ******************[B]*****************
+          short_list = [1, 2, 3]
+        while True:
+            value = input("Position [q to quit]? ")
+            if value.lower() == 'q':
+                break
+            try:
+                position = int(value)
+                print(short_list[position])
+            except IndexError as err:  
+                print("Bad index:", position)
+            except Exception as other:
+                print("Something else broke:", other)
+    </code></pre>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>
